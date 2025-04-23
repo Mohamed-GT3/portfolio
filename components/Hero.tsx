@@ -5,7 +5,7 @@ import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import { Spotlight } from './ui/spotlight'
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36"> 
       {/* Comment */}
       <div>
         <Spotlight className="-top-40 -left-10
@@ -38,13 +38,12 @@ const Hero = () => {
           <TextGenerateEffect
           className="text-center text-[40px]
           md:text-5xl lg:text-6xl"
-          words="Transforming Concepts into Seamless
-          Experience"
+          words="Transforming Concepts into Seamless User Experience"
           />
           <p className="text-center md:tracking-wider
           my-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I Am Mohamed, a Next.js Developer 
-            based in Egypt. 
+            Hi, I Am Mohamed, a Next.JS Developer 
+            based in Egypt.
           </p>
           <a href="#about">
             <MagicButton

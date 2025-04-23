@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-import colors from "tailwindcss/colors";
 import svgToDataUri from "mini-svg-data-uri";
+import type { Config } from "tailwindcss";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 const config: Config = {
@@ -153,8 +152,7 @@ const config: Config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll:"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },

@@ -2,14 +2,22 @@
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
-import { useThree, Node, Canvas, extend } from "@react-three/fiber";
+import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
+import type { ThreeElements } from '@react-three/fiber';
+import type { JSX } from 'react/jsx-runtime';
+
+
+
+extend({ ThreeGlobe });
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
-    threeGlobe: Node<ThreeGlobe, typeof ThreeGlobe>;
+    threeGlobe: JSX.IntrinsicElements['mesh'];
   }
 }
+
 
 extend({ ThreeGlobe });
 

@@ -1,8 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { useMemo, useRef } from "react";
-import * as THREE from "three";
+import React, { useMemo, useRef, useEffect } from "react";
+import * as THREE from "three"; 
+
 
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
@@ -192,7 +193,26 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh>();
+  const ref = useRef<THREE.Mesh | null>(null);
+  useEffect(() => {
+    if (ref.current) {
+      const geometry = ref.current.geometry;
+      const position = geometry.attributes.position;
+  
+      console.log("geometry:", geometry);
+      console.log("position attribute:", position);
+  
+      if (position) {
+        console.log("position array:", position.array);
+      } else {
+        console.warn("❌ No 'position' attribute found!");
+      }
+    }
+  }, []);
+  
+  
+
+
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -258,18 +278,18 @@ const ShaderMaterial = ({
   const material = useMemo(() => {
     const materialObject = new THREE.ShaderMaterial({
       vertexShader: `
-      precision mediump float;
-      in vec2 coordinates;
-      uniform vec2 u_resolution;
-      out vec2 fragCoord;
-      void main(){
-        float x = position.x;
-        float y = position.y;
-        gl_Position = vec4(x, y, 0.0, 1.0);
-        fragCoord = (position.xy + vec2(1.0)) * 0.5 * u_resolution;
-        fragCoord.y = u_resolution.y - fragCoord.y;
-      }
-      `,
+  precision mediump float;
+  in vec3 position;
+  uniform vec2 u_resolution;
+  out vec2 fragCoord;
+
+  void main(){
+    gl_Position = vec4(position, 1.0);
+    fragCoord = (position.xy + vec2(1.0)) * 0.5 * u_resolution;
+    fragCoord.y = u_resolution.y - fragCoord.y;
+  }
+`,
+
       fragmentShader: source,
       uniforms: getUniforms(),
       glslVersion: THREE.GLSL3,
@@ -282,10 +302,11 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-    <mesh ref={ref as any}>
-      <planeGeometry args={[2, 2]} />
-      <primitive object={material} attach="material" />
+    <mesh ref={ref}>
+    <planeGeometry args={[2, 2]} />
+    <primitive attach="material" object={material} />
     </mesh>
+
   );
 };
 
