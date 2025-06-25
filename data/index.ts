@@ -72,21 +72,22 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    title: "Store it – Cloud Storage Web App",
+    des: "A secure and reliable solution to store and manage your media files, including images, audio, documents, and beyond.",
+    img: "/p7.png",
+    iconLists: ["/re.svg","/next.svg", "/tail.svg", "/ts.svg",],
+    link: "https://storage-management-steel.vercel.app/",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    title: "Refine Project  – Task Management System",
+    des: "A modern task management system built using Refine, React, and Ant Design, designed to help users create, assign, and track tasks efficiently. ",
+    img: "/p6.png",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "https://nazzem.vercel.app/",
   },
-  {
+ /*
+ {
     id: 3,
     title: "AI Image SaaS - Canva Application",
     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
@@ -102,6 +103,7 @@ export const projects = [
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "/ui.apple.com",
   },
+  */
 ];
 
 export const testimonials = [
